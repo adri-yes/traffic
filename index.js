@@ -7,7 +7,12 @@ const client = new ApolloClient({
   cache: cache,
   uri: 'https://apollo-gateway-t4modcxifa-uc.a.run.app',
   headers: {
-      'client-name': 'react-web-client',
-      'client-version': '1.1'
+      'client-name': 'web-client',
+      'client-version': '1.1',
+      'queryDeduplication': false
   },
 });
+
+queries = [
+  gql("query getFlights { flights { flightNumber, departureDate }}")
+]
