@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-async function fetchAllProducts(randomClient, randomVersion) {
+async function fetchAllFlights(randomClient, randomVersion) {
     const response = await fetch('https://apollo-gateway-t4modcxifa-uc.a.run.app', {
         method: 'POST',
         headers: {
@@ -48,7 +48,7 @@ let versions = [
 ]
 let randomVersion = versions[Math.floor(Math.random() * versions.length)];
 
-let oddsArray = [1, 1, 1, 1, 2, 2, 2, 3, 3, 4 ]
+let oddsArray = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
 let random = oddsArray[Math.floor(Math.random() * oddsArray.length)];
 
 let randomProduct = Math.floor(Math.random() * 15 + 1);
@@ -61,18 +61,19 @@ let times = possibleTimes[Math.floor(Math.random() * possibleTimes.length)];
 
 if(random === 1) {
   for (let i = 0; i < times; i++) {
-      fetchAllProducts(randomClient, randomVersion);
+      fetchAllFlights(randomClient, randomVersion);
   }
-} else if (random === 2) {
-  for (let i = 0; i < times; i++) {
-      fetchOneProduct(randomClient, randomVersion, randomProduct);
-  }
-} else if (random === 3) {
-  for (let i = 0; i < times; i++) {
-      fetchUserAccount(randomClient, randomVersion, randomUser);
-  } 
-} else {
+//} else if (random === 2) {
+  //for (let i = 0; i < times; i++) {
+  //    fetchOneProduct(randomClient, randomVersion, randomProduct);
+  //}
+//} else if (random === 3) {
+  //for (let i = 0; i < times; i++) {
+  //    fetchUserAccount(randomClient, randomVersion, randomUser);
+  //} 
+} 
+else {
   for (let i = 0; i < 4; i++) {
-      legacyClientAccount(randomUser);
+      fetchAllFlights(randomClient, randomVersion);
   }
 };
